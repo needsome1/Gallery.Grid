@@ -1,0 +1,123 @@
+$primary-color: #FFEADD;
+$secondary-color: #2B2620;
+$tertiary-color: #FFFEEE;
+$highlight-color: #FFFFEF;
+
+// Define font families
+$font-comfortaa: 'Comfortaa';
+
+// Define reusable styles
+@mixin box-shadow($level) {
+  box-shadow: 0 0 $level rgba(0, 0, 0, 0.3);
+}
+
+@mixin transition($property) {
+  transition: 0.3s;
+  transition-property: $property;
+}
+
+// Apply styles to elements
+body {
+  font-family: $font-comfortaa;
+  margin: 0 auto;
+  background-color: $primary-color;
+}
+
+h1 {
+  text-align: center;
+  padding: 0.5%;
+  margin-left: 15%;
+  width: 70%;
+}
+
+h3 {
+  color: $highlight-color;
+  text-align: center;
+  font-size: 95%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+footer {
+  text-align: center;
+  font-size: 120%;
+  margin: 50px 0 25px 0;
+}
+
+.container {
+  background-color: $secondary-color;
+  height: auto;
+  @include box-shadow(20px);
+  padding: 4% 0;
+}
+
+.picture__grid {
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  grid-auto-rows: auto;
+  grid-column-gap: 2fr;
+  grid-row-gap: 1em;
+  justify-content: space-evenly;
+  justify-items: center;
+
+  .picture {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 17%; 
+    background-color: $tertiary-color;
+    @include box-shadow(10px);
+    @include transition(transform, box-shadow);
+
+    &:hover {
+      transform: scale(1.2);
+      @include box-shadow(20px rgba(255, 255, 255, 0.45));
+    }
+
+    &__name {
+      margin: auto;
+
+      &__text {
+        color: $highlight-color;
+        padding: 25px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.button__arrow__left {
+  float: left;
+  margin-left: 1%;
+  margin-top: 29%;
+}
+
+.button__arrow__right {
+  float: left;
+  margin-top: 29%;
+  margin-right: 0.5%;
+}
+
+.picture__full {
+  float: left;
+  padding: 6%;
+  margin-left: 2%;
+  margin-right: 2%;
+  background-color: $tertiary-color;
+  @include box-shadow(10px);
+}
+
+.picture__description {
+  padding: 40px 3% 100px 3%;
+  display: inline-block;
+  color: $highlight-color;
+  font-size: 130%;
+}
+
+.picture__frame {
+  float: left;
+  width: 55%;
+  margin: 2% 1.5% 3% -1%;
+}
